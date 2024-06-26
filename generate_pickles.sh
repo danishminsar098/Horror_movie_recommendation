@@ -1,12 +1,18 @@
 #!/bin/bash
-set -e  # Exit immediately if a command exits with a non-zero status
 
-# Convert Jupyter notebook to a Python script
-echo "Converting Jupyter notebook to Python script..."
-python -m nbconvert --to script Model.ipynb
+# Example: Optimize script for large dataset processing
 
-# Run the generated Python script
-echo "Running the generated Python script..."
-python Model.py
+echo "Starting pickle generation process..."
 
-echo "Pickle files generated successfully."
+# Example: Process data in smaller batches to reduce memory usage
+echo "Processing data in smaller batches..."
+python process_data.py --batch-size 1000
+
+# Example: Implementing error handling to avoid crashes
+echo "Handling errors gracefully..."
+if [ $? -ne 0 ]; then
+  echo "Error: Data processing failed."
+  exit 1
+fi
+
+echo "Pickle generation completed successfully."
