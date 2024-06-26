@@ -1,0 +1,33 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # or your main branch name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x  # Specify your Python version
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          # Add any additional setup commands here
+
+      - name: Convert Model.ipynb to Model.py
+        run: jupyter nbconvert --to script Model.ipynb
+
+      - name: Run Model.py to generate necessary files
+        run: python Model.py  # Adjust as per your model's requirements
+
+      - name: Run app.py
+        run: python app.py  # Adjust command as per your app startup
