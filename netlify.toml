@@ -10,7 +10,7 @@
     Content-Security-Policy = "frame-ancestors 'none'"
 
 [build.environment]
-  PIPENV_VENV_IN_PROJECT = true
+  PIPENV_VENV_IN_PROJECT = "true"
 
 [functions]
   node_bundler = "esbuild"
@@ -19,7 +19,7 @@
   PYTHON_VERSION = "3.8"
 
 [build.processing]
-  skip_processing = true
+  skip_processing = "true"
 
 [siteInfo]
   id = "your_site_id"
