@@ -1,0 +1,15 @@
+[build]
+  publish = "build"
+  command = "bash generate_pickles.sh && streamlit run app.py"
+
+[build.environment]
+  PIPENV_VENV_IN_PROJECT = true
+
+[functions]
+  node_bundler = "esbuild"
+
+[context.production.environment]
+  PYTHON_VERSION = "3.8"
+
+[build.processing]
+  skip_processing = true
