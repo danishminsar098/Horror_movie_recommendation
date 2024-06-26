@@ -1,5 +1,4 @@
 [build]
-  base = "backend"
   publish = "build"
   command = "bash generate_pickles.sh && streamlit run app.py"
 
@@ -26,6 +25,7 @@
   id = "your_site_id"
   name = "Your Site Name"
   description = "Description of your site"
+
 
 
 
