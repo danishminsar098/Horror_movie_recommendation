@@ -1,18 +1,22 @@
 #!/bin/bash
+set -e  # Exit immediately if a command exits with a non-zero status
 
-# Example: Optimize script for large dataset processing
+# Activate virtual environment if needed
+# source /path/to/your/venv/bin/activate
 
-echo "Starting pickle generation process..."
+# Install Python dependencies
+echo "Installing Python dependencies..."
+pip install -r requirements.txt
 
-# Example: Process data in smaller batches to reduce memory usage
-echo "Processing data in smaller batches..."
-python process_data.py --batch-size 1000
+# Additional setup commands if necessary
+# echo "Running additional setup..."
 
-# Example: Implementing error handling to avoid crashes
-echo "Handling errors gracefully..."
-if [ $? -ne 0 ]; then
-  echo "Error: Data processing failed."
-  exit 1
-fi
+# Convert Jupyter notebook to Python script
+echo "Converting Jupyter notebook to Python script..."
+python -m nbconvert --to script Model.ipynb
 
-echo "Pickle generation completed successfully."
+# Run the generated Python script
+echo "Running the generated Python script..."
+python Model.py
+
+echo "Pickle files generated successfully."
