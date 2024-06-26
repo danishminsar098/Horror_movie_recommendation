@@ -1,23 +1,29 @@
 [build]
-  # Directory to deploy after build process
   publish = "build"
-
-  # Build command to execute
   command = "bash generate_pickles.sh && streamlit run app.py"
 
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Content-Security-Policy = "frame-ancestors 'none'"
+
 [build.environment]
-  # Optional environment variables for build process
   PIPENV_VENV_IN_PROJECT = true
 
 [functions]
-  # Optional settings for serverless functions
   node_bundler = "esbuild"
 
 [context.production.environment]
-  # Optional environment variables for production context
   PYTHON_VERSION = "3.8"
 
 [build.processing]
-  # Optional settings for build processing
   skip_processing = true
+
+[siteInfo]
+  id = "your_site_id"
+  name = "Your Site Name"
+  description = "Description of your site"
+
 
